@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
@@ -25,10 +25,14 @@ export default function App() {
       </nav>
 
       <Routes>
+        {/* DEFAULT REDIRECT */}
+        <Route path="/" element={<Navigate to="/tickets" />} />
+
         <Route
           path="/tickets"
           element={<Tickets tickets={tickets} setTickets={setTickets} />}
         />
+
         <Route
           path="/new"
           element={<NewTicket setTickets={setTickets} />}
