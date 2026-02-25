@@ -18,7 +18,7 @@ export default function Tickets({ tickets, setTickets }) {
       <div className="filters">
         <button onClick={() => setFilter("All")}>All</button>
         <button onClick={() => setFilter("Open")}>Open</button>
-        <button onClick={() => setFilter("In Progress")}>In Progress</button>
+        <button onClick={() => setFilter("Active")}>Active</button>
         <button onClick={() => setFilter("Resolved")}>Resolved</button>
       </div>
 

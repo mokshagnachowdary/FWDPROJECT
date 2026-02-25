@@ -3,7 +3,12 @@ import TicketCard from "./TicketCard";
 export default function TicketList({ tickets, setTickets }) {
 
   if (tickets.length === 0)
-    return <p>No tickets available</p>;
+  
+    return (
+  <div className="empty-state">
+    <p>No tickets available</p>
+  </div>
+);
 
   return (
     <>

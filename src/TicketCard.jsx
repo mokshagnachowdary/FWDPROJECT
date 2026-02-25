@@ -23,9 +23,9 @@ export default function TicketCard({ ticket, setTickets }) {
       <div className="actions">
         <button
           className="progress-btn"
-          onClick={() => updateStatus("In Progress")}
+          onClick={() => updateStatus("Active")}
         >
-          In Progress
+          Active
         </button>
 
         <button

@@ -23,6 +23,9 @@ export default function App() {
           <Link to="/new">Create Ticket</Link>
         </div>
       </nav>
+      <h2>
+        Current Tickets ({tickets.length})
+      </h2>
 
       <Routes>
 
