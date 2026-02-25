@@ -5,11 +5,13 @@ import NewTicket from "./NewTicket";
 
 export default function App() {
 
+  // State Management: Initialize ticket data from localStorage (persistent storage)
   const [tickets, setTickets] = useState(() => {
     const saved = localStorage.getItem("tickets");
     return saved ? JSON.parse(saved) : [];
   });
 
+  // Side Effect: Sync updated ticket state to localStorage
   useEffect(() => {
     localStorage.setItem("tickets", JSON.stringify(tickets));
   }, [tickets]);
@@ -19,23 +21,21 @@ export default function App() {
       <nav className="navbar">
         <h2>Customer Support Ticketing Portal</h2>
         <div>
+          {/* Client-side navigation without page reload */}
           <Link to="/">All Tickets</Link>
           <Link to="/new">Create Ticket</Link>
         </div>
       </nav>
-      <h2>
-        Current Tickets ({tickets.length})
-      </h2>
 
       <Routes>
 
-        {/* DEFAULT LANDING PAGE */}
+        {/* Default Landing Page */}
         <Route
           path="/"
           element={
             <Tickets
-              tickets={tickets}
-              setTickets={setTickets}
+              tickets={tickets}       // Passing ticket data as props
+              setTickets={setTickets} // Passing state updater
             />
           }
         />
