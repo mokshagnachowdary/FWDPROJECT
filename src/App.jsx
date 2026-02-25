@@ -1,4 +1,4 @@
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
@@ -19,24 +19,43 @@ export default function App() {
       <nav className="navbar">
         <h2>Customer Support Ticketing Portal</h2>
         <div>
-          <Link to="/tickets">All Tickets</Link>
+          <Link to="/">All Tickets</Link>
           <Link to="/new">Create Ticket</Link>
         </div>
       </nav>
 
       <Routes>
-        {/* DEFAULT REDIRECT */}
-        <Route path="/" element={<Navigate to="/tickets" />} />
+
+        {/* DEFAULT LANDING PAGE */}
+        <Route
+          path="/"
+          element={
+            <Tickets
+              tickets={tickets}
+              setTickets={setTickets}
+            />
+          }
+        />
 
         <Route
           path="/tickets"
-          element={<Tickets tickets={tickets} setTickets={setTickets} />}
+          element={
+            <Tickets
+              tickets={tickets}
+              setTickets={setTickets}
+            />
+          }
         />
 
         <Route
           path="/new"
-          element={<NewTicket setTickets={setTickets} />}
+          element={
+            <NewTicket
+              setTickets={setTickets}
+            />
+          }
         />
+
       </Routes>
     </>
   );
